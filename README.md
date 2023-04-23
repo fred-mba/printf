@@ -1,2 +1,2 @@
 # Printf project
-![Jerry & Fred](https://community.appinventor.mit.edu/uploads/default/original/2X/c/cde171bc1da6dde70d08a961907626704ee4084e.gif)
+![Jerry & Fred](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaknhQpEU86On2dD12UVr2uptbBLZgJks-vA&usqp=CAU)
