@@ -2,14 +2,13 @@
 #include <stdarg.h>
 /**
  * _printf - produces output accoring to a format
- * @format: data type
+ * @format: parameter that contain formatting instructions
  * Return: length of datatype
  */
 
 int _printf(const char *format, ...)
 {
-	int len = 0;
-	int c;
+	int c, len = 0;
 	const char *p = format;
 	va_list ap;
 
@@ -37,8 +36,6 @@ int _printf(const char *format, ...)
 					case '%':
 						putchar('%');
 						len++;
-						break;
-					default:
 						break;
 				}
 			}
