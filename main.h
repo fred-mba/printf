@@ -2,4 +2,4 @@
 #define MAIN_H
 int _printf(const char *format, ...);
 int _strlen(const char *s);
-#endif
+#endif /*Printf prototypes*/
