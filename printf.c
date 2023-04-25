@@ -1,51 +1,20 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
 /**
- * _printf - produces output accoring to a format
- * @format: parameter that contain formatting instructions
- * Return: length of datatype
+ * _printf - produces output according to a format
+ * @format: string to print to stdout
+ * Return: the number of characters printed excluding the
+ * null byte used to end output to strings
  */
-
 int _printf(const char *format, ...)
 {
-	int c, len = 0;
-	const char *p = format;
-	va_list ap;
+	va_list arg;
+	int flag_count;
 
-	va_start(ap, format);
-	if (format)
-	{
-		for (; *p != '\0'; p++)
-		{
-			if (*p == '%')
-			{
-				switch (*(++p))
-				{
-					case 'c':
-						c = va_arg(ap, int);
-						putchar(c);
-						len++;
-						break;
-					case 's':
-						{
-							const char *str = va_arg(ap, const char*);
+	if (format == NULL)
+		return (-1);
+	va_start(arg, format);
 
-							len += printf("%s", str);
-						}
-						break;
-					case '%':
-						putchar('%');
-						len++;
-						break;
-				}
-			}
-			else
-			{
-				putchar(*p);
-				len++;
-			}
-		}
-	}
-	va_end(ap);
-	return (len);
+	flag_count = wprint(format, arg);
+	va_end(arg);
+	return (flag_count);
 }
