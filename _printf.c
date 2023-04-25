@@ -8,13 +8,18 @@
 
 int _printf(const char *format, ...)
 {
-	int c, len = 0;
+	int c, i = 0, len = 0;
 	const char *p = format;
 	va_list ap;
 
 	va_start(ap, format);
 	if (format)
 	{
+		if (format[0] == '%' && format[1] == '\0')
+		{
+			return (-1);
+		}
+	
 		for (; *p != '\0'; p++)
 		{
 			if (*p == '%')
@@ -35,6 +40,10 @@ int _printf(const char *format, ...)
 						break;
 					case '%':
 						putchar('%');
+						len++;
+						break;
+					default:
+						putchar(format[i + 1]);
 						len++;
 						break;
 				}
