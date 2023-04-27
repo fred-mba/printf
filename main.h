@@ -25,5 +25,6 @@ int print_dec(va_list ap);
 int print_int(va_list ar_numlist);
 int (*get_func(char s))(va_list ap);
 int _printf(const char *format, ...);
-int print_str(const char *format, ...);
+int print_str(va_list arguments, char *buf, unsigned int ibuf);
+unsigned int handl_buf(char *buf, char c, unsigned int ibuf);
 #endif

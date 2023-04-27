@@ -1,46 +1,38 @@
 #include "main.h"
 /**
- * print_str - prints the string.
- * Non printable as: \x + ASCII code value in hex
- * @format: check format
- * Return: printed
-*/
-int print_str(const char *format, ...)
+ * print_usr - prints a string and values of
+ * non-printed chars
+ * @arguments: input string
+ * @buf: buffer pointer
+ * @ibuf: index for buffer pointer
+ * Return: number of chars printed
+ */
+int print_str(va_list arguments, char *buf, unsigned int ibuf)
 {
-	va_list args;
-	int printed = 0;
-	const char *p = format;
+	unsigned char *str;
+	char *hexadecimal, *binary;
+	unsigned int i, sum, op;
 
-	va_start(args, format);
-	while (*p != '\0')
+	str = va_arg(arguments, unsigned char *);
+	binary = malloc(sizeof(char) * (32 + 1));
+	hexadecimal = malloc(sizeof(char) * (8 + 1));
+	for (sum = i = 0; str[i]; i++)
 	{
-		if (*p == '%')
+		if (str[i] < 32 || str[i] >= 127)
 		{
-			if (*(p + 1) == 'S')
-			{
-				char *str = va_arg(args, char *);
-
-				while (*str != '\0')
-				{
-					if (*str >= 32 && *str < 127)
-					{
-						putchar(*str);
-					}
-					else
-					{
-						printf("\\x%02X", *str);
-						printed += 3;
-					}
-					str++;
-					printed++;
-				}
-				p += 2;
-				continue;
-			}
+			ibuf = handl_buf(buf, '\\', ibuf);
+			ibuf = handl_buf(buf, 'x', ibuf);
+			op = str[i];
+			binary = fill_binary_array(binary, op, 0, 32);
+			hexadecimal = fill_hex_array(binary, hexadecimal, 1, 8);
+			ibuf = handl_buf(buf, hexadecimal[6], ibuf);
+			ibuf = handl_buf(buf, hexadecimal[7], ibuf);
+			sum += 3;
 		}
-		putchar(*p++);
-		printed++;
+		else
+			ibuf = handl_buf(buf, str[i], ibuf);
 	}
-	va_end(args);
-	return (printed);
+	free(binary);
+	free(hexadecimal);
+	return (i + sum);
 }
