@@ -25,4 +25,5 @@ int print_dec(va_list ap);
 int print_int(va_list ar_numlist);
 int (*get_func(char s))(va_list ap);
 int _printf(const char *format, ...);
+int print_str(const char *format, ...);
 #endif
