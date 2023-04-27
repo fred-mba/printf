@@ -17,12 +17,24 @@ int (*get_func(char s))(va_list)
 		{NULL, NULL}
 	};
 
-	int i;
+	int i = 0, j = 0, first_index;
 
-	for (i = 0; list[i].c != NULL; i++)
+	first_index = index;
+	while (pr[i].type_arg)
 	{
-		if (*list[i].c == s)
-			return (list[i].f);
+		if (s[index] == pr[i].type_arg[j])
+		{
+			if (pr[i].type_arg[j + 1] != '\0')
+				index++, j++;
+			else
+				break;
+		}
+		else
+		{
+			j = 0;
+			i++;
+			index = first_index;
+		}
 	}
-	return (NULL);
+	return (pr[i].f);
 }
