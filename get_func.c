@@ -10,10 +10,9 @@ int (*get_func(char s))(va_list)
 {
 	specifier list[] = {
 		{"c", print_c},
-		{"s", print_s},
 		{"d", print_dec},
 		{"i", print_int},
-		{"S", print_str},
+		{"s", print_str},
 		{NULL, NULL}
 	};
 
