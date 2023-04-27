@@ -1,30 +1,28 @@
-#ifndef PRINT_F
-#define PRINT_F
-
-#include <unistd.h>
-#include <stdarg.h>
+#ifndef MAIN_H
+#define MAIN_H
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
 #include <limits.h>
-
+#include <unistd.h>
 /**
- * struct specifier - struct function
- * @c: flag
- * @f: function
+ * struct format - match conversion specifiers for _printf
+ * @id: type char pointer of specifier
+ * @f: type pointer to function for conversion specifier
  */
-
-typedef struct specifier
+typedef struct format
 {
-	char *c;
-	int (*f)(va_list);
-} specifier;
+	char *id;
+	int (*f)();
+} convert_match;
 
-int _putchar(char c);
-int print_c(va_list ap);
-int print_s(va_list ap);
+int print_s(va_list val);
+int print_c(va_list val);
+int print_int(va_list args);
 int print_dec(va_list ap);
-int print_int(va_list ar_numlist);
-int (*get_func(char s))(va_list ap);
+int _putchar(char c);
 int _printf(const char *format, ...);
-int print_str(va_list arguments, char *buf, unsigned int ibuf);
-unsigned int handl_buf(char *buf, char c, unsigned int ibuf);
+int _strlen(char *s);
+int _strlenc(const char *s);
+int print_char(va_list val);
 #endif
