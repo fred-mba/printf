@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printf_srev - print str in reverse
+ * printf_srev - print str in esrever
  * @args: type struct va_arg where is allocated printf arguments
  *
  * Return: the string

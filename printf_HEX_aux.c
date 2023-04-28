@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printf_HEX_aux - print hex num
+ * printf_HEX_aux - print hex decimal numbers
  * @num: number to print.
  * Return: counter.
  */

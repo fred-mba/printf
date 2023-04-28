@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * _printf - select the correct function to print.
- * @format: identifier
- * Return: length of string
+ * _printf - print the output in the console
+ * @format: array to check the string length
+ * Return: string length
  */
 int _printf(const char * const format, ...)
 {

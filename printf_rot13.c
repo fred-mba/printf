@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * printf_rot13 - printf str to ROT13
+ * printf_rot13 - printf string to ROT13
  * @args: type struct va_arg where is allocated printf arguments
  * Return: counter
  *
