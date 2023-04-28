@@ -1,15 +1,14 @@
 #include "main.h"
 /**
- * print_dec - print decimal numberd
- * @args: argument passed
- * Return: length
+ * printf_unsigned - prints integer
+ * @args: argument to print
+ * Return: number of char printed
  */
-int print_dec(va_list args)
+int printf_unsigned(va_list args)
 {
-	int n = va_arg(args, int);
-	int num, last = n % 10, digit;
+	unsigned int n = va_arg(args, unsigned int);
+	int num, last = n % 10, digit, exp = 1;
 	int  i = 1;
-	int exp = 1;
 
 	n = n / 10;
 	num = n;

@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_hex_aux - prints hex
+ * printf_hex_aux - print a hex
  * @num: arguments.
  * Return: counter.
  */
-int print_hex_aux(unsigned long int num)
+int printf_hex_aux(unsigned long int num)
 {
 	long int i;
 	long int *array;

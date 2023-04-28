@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * _strlen - return lenght of dtring
- * @s: type char pointer
- * Return: length
+ * _strlen - return length of a string.
+ * @s: Type char pointer
+ * Return: c.
  */
 int _strlen(char *s)
 {
@@ -11,10 +11,11 @@ int _strlen(char *s)
 	for (c = 0; s[c] != 0; c++)
 		;
 	return (c);
+
 }
 /**
- * _strlenc - strlen function for constant char pointer s
- * @s: type char pointer
+ * _strlenc - Strlen function for constant char pointer s
+ * @s: Type char pointer
  * Return: c
  */
 int _strlenc(const char *s)

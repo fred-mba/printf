@@ -1,16 +1,15 @@
 #include "main.h"
 
 /**
- * print_hex - prints hex number.
- * @val: arguments.
+ * printf_HEX_aux - print hex num
+ * @num: number to print.
  * Return: counter.
  */
-int print_hex(va_list val)
+int printf_HEX_aux(unsigned int num)
 {
 	int i;
 	int *array;
 	int counter = 0;
-	unsigned int num = va_arg(val, unsigned int);
 	unsigned int temp = num;
 
 	while (num / 16 != 0)
@@ -29,7 +28,7 @@ int print_hex(va_list val)
 	for (i = counter - 1; i >= 0; i--)
 	{
 		if (array[i] > 9)
-			array[i] = array[i] + 39;
+			array[i] = array[i] + 7;
 		_putchar(array[i] + '0');
 	}
 	free(array);

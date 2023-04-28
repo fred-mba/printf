@@ -1,27 +1,27 @@
 #include "main.h"
 /**
- * _printf - selects correct function to print
+ * _printf - select the correct function to print.
  * @format: identifier
- * Return: length of str
+ * Return: length of string
  */
 int _printf(const char * const format, ...)
 {
 	convert_match m[] = {
-		{"%s", print_s}, {"%c", print_char},
-		{"%%", print_37}, {"%i", print_int},
-		{"%d", print_dec}, {"%r", print_srev},
-		{"%R", print_rot13}, {"%b", print_bin},
-		{"%u", print_unsigned}, {"%o", print_oct},
-		{"%x", print_hex}, {"%X", print_HEX},
-		{"%S", print_excl_str}, {"%p", print_ptr}
+		{"%s", printf_string}, {"%c", printf_char},
+		{"%%", printf_37},
+		{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
+		{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
+		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
+		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
 	};
 
-	va_list ap;
+	va_list args;
 	int i = 0, j, len = 0;
 
-	va_start(ap, format);
+	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
+
 Here:
 	while (format[i] != '\0')
 	{
@@ -30,7 +30,7 @@ Here:
 		{
 			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
 			{
-				len += m[j].f(ap);
+				len += m[j].f(args);
 				i = i + 2;
 				goto Here;
 			}
@@ -40,6 +40,6 @@ Here:
 		len++;
 		i++;
 	}
-	va_end(ap);
+	va_end(args);
 	return (len);
 }

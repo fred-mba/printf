@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * print_ptr - print a pointer
+ * printf_pointer - prints a hex
  * @val: arguments.
  * Return: counter.
  */
-int print_ptr(va_list val)
+int printf_pointer(va_list val)
 {
 	void *p;
 	char *s = "(nil)";
