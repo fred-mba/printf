@@ -10,8 +10,7 @@ int printf_pointer(va_list val)
 	void *p;
 	char *s = "(nil)";
 	long int a;
-	int b;
-	int i;
+	int b, i;
 	char *hex_str;
 
 	p = va_arg(val, void*);
