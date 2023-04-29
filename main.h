@@ -46,5 +46,6 @@ int printf_string(va_list val);
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_num(unsigned int value, int len);
+void printf_special(const char *format, ...);
 
 #endif
