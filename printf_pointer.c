@@ -28,8 +28,9 @@ int printf_pointer(va_list val)
 	hex_str = (char *)malloc(sizeof(char) * 20);
 	if (hex_str == NULL)
 	{
-		return (1);
+		return (-1);
 	}
+	/*convert the hexadecimal value to a string*/
 	sprintf(hex_str, "%lx", a);
 	_putchar('0');
 	_putchar('x');
