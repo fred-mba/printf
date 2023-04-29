@@ -12,6 +12,7 @@ int printf_pointer(va_list val)
 	long int a;
 	int b;
 	int i;
+	char *hex_str;
 
 	p = va_arg(val, void*);
 	if (p == NULL)
@@ -24,8 +25,15 @@ int printf_pointer(va_list val)
 	}
 
 	a = (unsigned long int)p;
+	hex_str = (char *)malloc(sizeof(char) * 20);
+	if (hex_str == NULL)
+	{
+		return (1);
+	}
+	sprintf(hex_str, "%lx", a);
 	_putchar('0');
 	_putchar('x');
 	b = printf_hex_aux(a);
+	free(hex_str);
 	return (b + 2);
 }
